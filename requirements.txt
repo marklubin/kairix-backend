@@ -1,7 +1,0 @@
-flask
-flask-cors
-flask-restful
-boto3
-openai
-pytest
-requests

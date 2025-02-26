@@ -1,0 +1,42 @@
+[tool.poetry]
+name = "kairix-backend"
+version = "0.1.0"
+description = ""
+packages = [
+    { include = "app" }
+]
+
+[tool.poetry.dependencies]
+python = ">=3.11.0"
+flask = "==3.0.0"
+gunicorn = "^21.2.0"
+flask-sqlalchemy = "==3.1.1"
+psycopg2-binary = "^2.9.10"
+pytest = "^8.3.4"
+flask-migrate = "==4.0.5"
+flask-cors = "==4.0.0"
+flask-restful = "==0.3.10"
+boto3 = "^1.37.0"
+openai = "^1.64.0"
+
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.poetry.group.dev.dependencies]
+poethepoet = "^0.24.4"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.poetry.scripts]
+setup = 'poetry install'
+start = 'poetry run python run.py'
+test = 'poetry run pytest tests/'
+format = 'poetry run black app/'
+lint = 'poetry run flake8 app/'
+
