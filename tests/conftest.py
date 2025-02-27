@@ -4,11 +4,7 @@ from app import create_app, db
 @pytest.fixture
 def app():
     """Create and configure a test Flask application instance."""
-    app = create_app({
-        'TESTING': True,
-        'SQLALCHEMY_DATABASE_URI': 'sqlite:///:memory:',
-        'SQLALCHEMY_TRACK_MODIFICATIONS': False
-    })
+    app = create_app()
 
     with app.app_context():
         db.create_all()

@@ -48,3 +48,9 @@ config = {
     'production': ProductionConfig,
     'default': DevelopmentConfig
 }
+
+
+def get_config():
+    """Dynamically get the config class based on an environment variable."""
+    config_name = os.getenv("FLASK_CONFIG", "default")  # Default to 'default' (development)
+    return config.get(config_name, DevelopmentConfig)  # Fallback to DevelopmentConfig
