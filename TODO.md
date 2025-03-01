@@ -96,3 +96,37 @@ Zapier Integration Setup
 	•	Define create_calendar_event function schema.
 	•	Allow AI to send structured event details (title, time, participants).
 	•	Test AI-driven event creation from a natural language command.
+
+
+ Kairix Backend TODO – ElevenLabs + Twilio Integration
+
+Twilio + ElevenLabs Conversational AI Pipeline
+
+1. Twilio Setup
+	•	Purchase & configure a Twilio phone number with voice support.
+	•	Set up Twilio webhook to forward calls to ElevenLabs.
+	•	Ensure Twilio is correctly routing speech input to ElevenLabs API.
+
+2. ElevenLabs Conversational AI Configuration
+	•	Register for ElevenLabs API & enable Conversational AI.
+	•	Configure ElevenLabs to act as a processing layer between Twilio & Kairix.
+	•	Define webhook routing so ElevenLabs sends transcriptions to Kairix.
+	•	Tune ElevenLabs conversation state management for optimal AI flow.
+
+3. Modify Kairix AI Backend to Accept Requests from ElevenLabs
+	•	Create an API endpoint (/api/conversation) for ElevenLabs to send transcriptions.
+	•	Ensure responses are structured correctly for ElevenLabs’ TTS engine.
+	•	Optimize response latency to ensure fast voice interactions.
+	•	Implement conversational memory to maintain AI context across turns.
+
+4. Test End-to-End Voice AI Interaction
+	•	Test the flow: Call Twilio → ElevenLabs transcribes → Kairix processes → ElevenLabs generates TTS → Response sent back via Twilio.
+	•	Monitor & debug latency issues in the pipeline.
+	•	Ensure ElevenLabs properly handles long interactions & multi-turn conversations.
+	•	Fine-tune TTS quality and voice selection.
+
+5. Deployment & Scaling
+	•	Deploy the integration on production servers.
+	•	Implement monitoring & logging for AI conversation tracking.
+	•	Optimize error handling for edge cases (noisy input, dropped calls, etc.).
+	•	Prepare documentation for setting up the Kairix + ElevenLabs + Twilio pipeline.
