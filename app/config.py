@@ -6,6 +6,10 @@ class BaseConfig:
     """Base configuration."""
     SECRET_KEY = os.getenv('SECRET_KEY', 'dev-secret-key')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+    OPENAI_DEFAULT_MODEL = os.getenv('OPENAI_DEFAULT_MODEL', 'text-davinci-003')
+    OPENAI_DEFAULT_TEMPERATURE = float(os.getenv('OPENAI_DEFAULT_TEMPERATURE', 0.7))
+    OPENAI_DEFAULT_MAX_TOKENS = int(os.getenv('OPENAI_DEFAULT_MAX_TOKENS', 150))    
 
 class TestConfig(BaseConfig):
     """Testing configuration - uses SQLite in-memory."""
