@@ -134,7 +134,7 @@ class OpenAIService:
         """
         try:
             response = openai.Embedding.create(
-                input=text,
+                input=text,      
                 model="text-embedding-ada-002"
             )
             return response["data"][0]["embedding"]

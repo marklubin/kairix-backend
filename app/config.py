@@ -16,6 +16,12 @@ class TestConfig(BaseConfig):
     TESTING = True
     SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
 
+class DevTestConfig(BaseConfig):
+    """Development Testing configuration - uses local PostgreSQL test database."""
+    TESTING = True
+    DEBUG = True
+    SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:postgres@localhost:5432/chatdb_test'
+
 class DevelopmentConfig(BaseConfig):
     """Development configuration - uses local PostgreSQL."""
     DEBUG = True
@@ -49,6 +55,7 @@ class ProductionConfig(BaseConfig):
 config = {
     'development': DevelopmentConfig,
     'testing': TestConfig,
+    'devtest': DevTestConfig,
     'production': ProductionConfig,
     'default': DevelopmentConfig
 }
