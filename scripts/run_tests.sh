@@ -21,22 +21,22 @@ SUITE=${1:-"all"}  # Default to "all" if no argument provided
 case $SUITE in
     "unit")
         export FLASK_CONFIG=testing
-        PYTHONPATH=. pytest tests/models/ tests/services/ tests/routes/ -v
+        PYTHONPATH=. pytest --cov=app tests/models/ tests/services/ tests/routes/ -v
         ;;
     "e2e")
         export FLASK_CONFIG=devtest
-        PYTHONPATH=. pytest tests/e2e/ -v
+        PYTHONPATH=. pytest --cov=app tests/e2e/ -v
         ;;
     "all")
         echo "Running all test suites..."
         
         echo "Running unit tests..."
         export FLASK_CONFIG=testing
-        PYTHONPATH=. pytest tests/models/ tests/services/ tests/routes/ -v
+        PYTHONPATH=. pytest --cov=app tests/models/ tests/services/ tests/routes/ -v
         
         echo "Running e2e tests..."
         export FLASK_CONFIG=devtest
-        PYTHONPATH=. pytest tests/e2e/ -v
+        PYTHONPATH=. pytest --cov=app tests/e2e/ -v
         ;;
     *)
         echo "Invalid test suite specified. Available options: unit, e2e, all"
